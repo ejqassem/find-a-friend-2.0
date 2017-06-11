@@ -10,20 +10,23 @@ $(document).ready(function () {
     scope: 'openid profile email'
   });
 
-  hideAfterLoginScreen();
+  hideBeforeLoginScreen();
   handleAuthentication();
   initHandlers();
 
-  function hideAfterLoginScreen() {
+  function hideBeforeLoginScreen() {
     $("#after-login-screen").hide();
     $("#user-about-me").hide();
     $("#user-posts").hide();
+    $("#survey-btns-div").hide();
   }
 
   function showAfterLoginScreen() {
+    $("#welcome-header").hide();
     $("#after-login-screen").show();
     $("#user-about-me").show();
     $("#user-posts").show();
+    $("#survey-btns-div").show();
   }
 
   function initHandlers() {
@@ -34,6 +37,7 @@ $(document).ready(function () {
     });
     $('#btn-logout').click(logout);
     $("#submit-new-post").on("click", submitNewPost);
+    $("#submit-new-about").on("click", submitAboutUser); 
   }
 
   function setSession(authResult) {
@@ -73,7 +77,7 @@ $(document).ready(function () {
     } else {
       $('#btn-login').css('display', 'inline-block');
       $('#btn-logout').css('display', 'none');
-      $("#login-status").text('Please login to continue!.');
+      $("#login-status").text('Please login to continue!');
     }
   }
 
@@ -112,21 +116,27 @@ $(document).ready(function () {
   }
 
   function renderUserProfile(userImage) {
+    showAfterLoginScreen();
     // runs AJAX get request to get all of the logged in user's posts 
-    var userPosts = getPosts(function (data) {
-      console.log(data);
-      return userPosts = data;
+    getPosts(function (userPosts) {
+      for (var i = 0; i < userPosts.length; i++) {
+        var currentPost = JSON.parse(JSON.stringify(userPosts[i]));
+      
+        var newPost = $("<li>");
+        newPost.attr("class", "collection-item"); 
+        var newPostBody = currentPost["Posts.body"]; 
+        newPost.append(newPostBody);
+        $("#user-posts-here").append(newPost);
+      }
     });
-    // waits until AJAX request is complete to run 
-    $(document).ajaxComplete(function () {
-      // allows access to userPosts and rendering to the page 
-      console.log("userPosts ", userPosts);
-      showAfterLoginScreen();
 
-      var profileImage = $("<img>");
-      profileImage.attr("src", userImage);
-      $("#user-image").append(profileImage);
+
+    var profileImage = $("<img>");
+    profileImage.attr({
+      "src": userImage,
+      "class": "responsive-img"
     });
+    $("#user-image").append(profileImage);
 
   }
 
@@ -182,11 +192,10 @@ $(document).ready(function () {
       userPosts = result;
       return callback(userPosts);
     });
-    // get("/users/posts/" + UserId).then(function (allPosts) {
-    //   userPosts = allPosts;
-    //   console.log("userPosts inside", userPosts); 
-    //   return userPosts; 
-    // });
+  }
+
+  function submitAboutUser() {
+    
   }
 
 });

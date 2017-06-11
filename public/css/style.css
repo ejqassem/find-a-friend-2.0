@@ -1,0 +1,35 @@
+nav {
+  position: relative; 
+}
+
+#welcome-header {
+  text-align: center; 
+}
+
+#main-panel {
+  margin-top: 4%; 
+}
+
+#login-status {
+  position:absolute; 
+  top: 6%; 
+  right: 3%; 
+  font-size: 1.75em; 
+}
+
+#survey-btns-div {
+  text-align: center; 
+}
+
+#post-title {
+  width: 50%; 
+}
+
+#user-posts-here {
+  margin-bottom: 17%; 
+}
+
+#status-title {
+  border-bottom: 1px solid gray; 
+  margin-right: 10%; 
+}
