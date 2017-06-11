@@ -1,33 +1,21 @@
 {
-  "name": "find-a-friend-2.0",
+  "name": "find-a-friend-autho",
   "version": "1.0.0",
-  "description": "full-stack dating application matching users based on preferences and location",
+  "description": "",
   "main": "server.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
-    "test": "mocha",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ejqassem/find-a-friend-2.0.git"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ejqassem/find-a-friend-2.0/issues"
-  },
-  "homepage": "https://github.com/ejqassem/find-a-friend-2.0#readme",
-  "devDependencies": {
-    "chai": "^4.0.1",
-    "mocha": "^3.4.2"
-  },
   "dependencies": {
+    "auth0-js": "^8.7.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "gmail-send": "^1.2.10",
     "mysql": "^2.13.0",
+    "nodemailer": "^4.0.1",
     "path": "^0.12.7",
     "sequelize": "^3.30.4"
   }

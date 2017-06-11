@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title> Find-a-Friend-2.0 </title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--jQuery CDN-->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <nav>
+    <h4 id="logo"> Habbibi </h3>
+  </nav>
+
+  <div class="container">
+
+    <section id="welcome-screen">
+      <h1> Welcome to Habbibi </h1>
+      <h2 id="login-status"> </h2>
+      <div id="login-btns">
+        <button id="btn-login" type="button">Login </button>
+        <button id="btn-logout" type="button">Logout</button>
+      </div>
+      <div id="login-status"></div>
+    </section>
+    <section id="after-login-screen">
+      <figure id="user-image">
+
+      </figure>
+
+      <div id="user-about-me">
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="about-user" type="text" class="validate">
+                <label for="about-user"> About Me: </label>
+              </div>
+            </div>
+            <button id="submit-new-about" class="btn waves-effect waves-light" type="button" name="action">Submit<i class="material-icons right">send</i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col l12">
+          <h4 id="choose-survey"> Please choice a survey below </h2>
+            <div class="col l4">
+              <button class="survey-btns" id="love-survey" type="button">Heart symbol</button>
+            </div>
+            <div class="col l4">
+              <button class="survey-btns" id="both-survey" type="button"> Both</button>
+            </div>
+            <div class="col l4">
+              <button class="survey-btns" id="friend-survey" type="button"> Friend Symbol</button>
+            </div>
+        </div>
+      </div>
+
+    </section>
+    <aside>
+
+      <div id="user-posts">
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="Placeholder" id="post-title" type="text" class="validate">
+                <label for="post-title"> About Me: </label>
+              </div>
+              <div class="input-field col s6">
+                <input id="post-body" type="text" class="validate">
+                <label for="post-body"> Body: </label>
+              </div>
+            </div>
+            <button id="submit-new-post" class="btn waves-effect waves-light" type="button" name="action">Submit<i class="material-icons right">send</i></button>
+          </form>
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+
+
+  <!--auth0 stable CDN-->
+  <script src="https://cdn.auth0.com/js/auth0/8.7/auth0.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <!--custom JS-->
+  <script src="./javascript/app.js"></script>
+</body>
+
+</html>
