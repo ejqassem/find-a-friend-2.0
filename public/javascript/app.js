@@ -38,6 +38,8 @@ $(document).ready(function () {
     $('#btn-logout').click(logout);
     $("#submit-new-post").on("click", submitNewPost);
     $("#submit-new-about").on("click", submitAboutUser); 
+    $(".button-collapse").sideNav();
+    $('.parallax').parallax();
   }
 
   function setSession(authResult) {

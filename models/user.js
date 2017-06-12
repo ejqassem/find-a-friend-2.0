@@ -29,7 +29,11 @@ module.exports = function(sequelize, DataTypes) {
         status: {
             type: DataTypes.STRING, 
             defaultValue: "friend"
-        }
+        }, 
+
+        // score: {
+        //     type: DataTypes.STRING, 
+        // }
  
     }, {
         classMethods: {

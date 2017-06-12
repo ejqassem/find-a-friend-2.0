@@ -4,6 +4,8 @@ nav {
 
 #welcome-header {
   text-align: center; 
+  color: white; 
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #main-panel {
@@ -12,7 +14,7 @@ nav {
 
 #login-status {
   position:absolute; 
-  top: 6%; 
+  top: 5%; 
   right: 3%; 
   font-size: 1.75em; 
 }
@@ -25,12 +27,23 @@ nav {
   width: 50%; 
 }
 
-#user-posts-here {
-  margin-bottom: 17%; 
+#status-title {
+  margin-right: 10%; 
 }
 
-#status-title {
-  border-bottom: 1px solid gray; 
-  margin-right: 10%; 
+#logo {
+  padding-left: 1%; 
+}
+
+#user-posts {
+  margin-right: 5%; 
+}
+
+html {
+  background: url("/../images/habbibi-background.jpg") no-repeat center center; 
+  background-size: 100% 100%; 
+  width: 100%; 
+  min-height: 100vh; 
+  font-family: "Lato", serif; 
 }
 

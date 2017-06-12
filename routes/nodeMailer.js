@@ -9,7 +9,7 @@ module.exports = function (newUserEmail) {
     to: newUserEmail, // Send to yourself 
     // you also may set array of recipients:  
     // [ 'user1@gmail.com', 'user2@gmail.com' ] 
-    subject: 'Welcome to Habbibi App',
+    subject: 'Welcome to Habbibi App!',
     text: 'You have signed up for Habbibi App! Happy matching :)' // Plain text 
   })(); // Send without any check 
 }

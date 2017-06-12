@@ -7,6 +7,7 @@
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="./css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--jQuery CDN-->
@@ -18,30 +19,39 @@
 
   <nav>
     <div class="nav-wrapper">
-      <h4 id="logo" class="brand-logo"> Habbibi </h3>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a id="btn-login"> Login </a></li>
-          <li><a id="btn-logout"> Logout </a></li>
-        </ul>
+      <h4 id="logo" class="brand-logo"> Habbibi </h4>
+      <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="survey-btns" id="love-survey"> Heart symbol </a></li>
+        <li><a class="survey-btns" id="both-survey"> Both </a></li>
+        <li><a class="survey-btns" id="friend-survey"> Friend Symbol </a></li>
+        <li><a id="btn-login"> Login </a></li>
+        <li><a id="btn-logout"> Logout </a></li>
+      </ul>
+      <ul class="side-nav" id="mobile">
+        <li><a class="survey-btns" id="love-survey"> Heart symbol </a></li>
+        <li><a class="survey-btns" id="both-survey"> Both </a></li>
+        <li><a class="survey-btns" id="friend-survey"> Friend Symbol </a></li>
+        <li><a id="btn-login"> Login </a></li>
+        <li><a id="btn-logout"> Logout </a></li>
+      </ul>
     </div>
   </nav>
 
   <div class="container">
-
     <section id="welcome-screen">
       <h1 id="welcome-header"> Welcome to Habbibi </h1>
       <h2 id="login-status"> </h2>
-      <div id="login-status"></div>
     </section>
 
     <section id="after-login-screen">
 
       <div class="col s12 m12 l12" id="main-panel">
-        <div class="card-panel grey lighten-5 z-depth-1">
+        <div class="card-panel">
           <div class="row">
             <div class="col s6 m6 l6">
               <div class="row">
-                <div class="col s4" id="user-image">
+                <div class="col s12" id="user-image">
 
                 </div>
               </div>
@@ -51,8 +61,8 @@
                     <div class="row">
                       <form class="col s12">
                         <div class="row">
-                          <div class="input-field col s6">
-                            <input id="about-user" type="text" class="validate">
+                          <div class="input-field col s11">
+                            <textarea id="about-user" class="materialize-textarea" data-length="60"></textarea>
                             <label for="about-user"> About Me: </label>
                           </div>
                         </div>
@@ -67,7 +77,7 @@
             <div class="col s6 m6 l6">
               <div id="user-posts">
                 <div class="row">
-                  <div class="row">
+                  <div class="row card-panel">
                     <form class="col s12">
                       <h4 id="status-title"> What's on your mind? </h4>
                       <div class="input-field col s12">
@@ -80,46 +90,30 @@
                       <button id="submit-new-post" class="btn waves-effect waves-light" type="button" name="action">Submit<i class="material-icons right">send</i></button>
                     </form>
                   </div>
-
-                  <div class="row">
-
-                    <div class="col s12">
-                      <div class="row">
-                        <div class="col s12">
-                          <p>Past posts:</p>
-                          <ul class="collection" id="user-posts-here">
-                            <!--append user posts here-->
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
                 </div>
               </div>
             </div>
-          </div>
+            <div class="row">
 
-          <div class="row" id="survey-btns-div">
-            <div class="col l12">
-              <h4 id="choose-survey"> Please select a survey below to start matching :) </h2>
-                <div class="col l4">
-                  <button class="survey-btns" id="love-survey" type="button">Heart symbol</button>
+              <div class="col s12 m12 l12">
+                <div class="row">
+                  <div class="col s12">
+                    <p>Past posts:</p>
+                    <ul class="collection" id="user-posts-here">
+                      <!--append user posts here-->
+                    </ul>
+                  </div>
                 </div>
-                <div class="col l4">
-                  <button class="survey-btns" id="both-survey" type="button"> Both</button>
-                </div>
-                <div class="col l4">
-                  <button class="survey-btns" id="friend-survey" type="button"> Friend Symbol</button>
-                </div>
+              </div>
+
             </div>
           </div>
 
         </div>
-
+      </div>
     </section>
 
-    </div>
+
 
 
     <!--auth0 stable CDN-->
