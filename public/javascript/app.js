@@ -198,4 +198,12 @@ $(document).ready(function () {
     
   }
 
+  function renderQuestionsPage() {
+
+  }
+
+  function renderMatchesPage() {
+
+  }
+
 });
