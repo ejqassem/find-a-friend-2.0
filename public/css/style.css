@@ -1,49 +1,140 @@
-nav {
-  position: relative; 
+#welcome-header,
+#welcome-subheader,
+#instructions {
+  color: white;
+  font-weight: bolder;
+}
+
+#welcome-subheader,
+#instructions {
+  font-weight: 100 !important; 
+  font-size: 1.5em;
+}
+
+#welcome-subheader {
+  margin: 1%; 
 }
 
 #welcome-header {
-  text-align: center; 
-  color: white; 
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  margin: 1%; 
 }
 
-#main-panel {
-  margin-top: 4%; 
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-#login-status {
-  position:absolute; 
-  top: 5%; 
-  right: 3%; 
-  font-size: 1.75em; 
+
+/* Firefox < 16 */
+
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-#survey-btns-div {
-  text-align: center; 
+
+/* Safari, Chrome and Opera > 12.1 */
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-#post-title {
-  width: 50%; 
+
+/* Internet Explorer */
+
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-#status-title {
-  margin-right: 10%; 
+
+/* Opera < 12.1 */
+
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#welcome-subheader, #instructions {
+  -webkit-animation: fadein 2s;
+  /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s;
+  /* Firefox < 16 */
+  -ms-animation: fadein 2s;
+  /* Internet Explorer */
+  -o-animation: fadein 2s;
+  /* Opera < 12.1 */
+  animation: fadein 2s;
+}
+
+#get-started {
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#instructions {
+  position: absolute;
+  bottom: 7%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #logo {
-  padding-left: 1%; 
+  width: 10%;
+  margin-top: 0.5%;
+}
+
+#post-title {
+  width: 50%;
+}
+
+#status-title {
+  margin-right: 10%;
+}
+
+#logo {
+  padding-left: 1%;
 }
 
 #user-posts {
-  margin-right: 5%; 
+  margin-right: 5%;
 }
 
 html {
-  background: url("/../images/habbibi-background.jpg") no-repeat center center; 
-  background-size: 100% 100%; 
-  width: 100%; 
-  min-height: 100vh; 
-  font-family: "Lato", serif; 
+  background: url("/../images/habbibi-background.jpg") no-repeat center center;
+  background-size: 100% 100%;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Lato", serif;
 }
 
+#profile-tab, #wrapper {
+  padding: 0%; 
+}
+
+#about-user {
+  font-size: 1.3em; 
+}

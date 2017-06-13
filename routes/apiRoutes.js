@@ -109,4 +109,19 @@ module.exports = function (app) {
     });
   });
 
+  app.put("/users/aboutuser/", function(req, res) {
+    var user = req.body; 
+    db.User.update({
+      about_user: user.aboutUser
+    }, {
+      where: {
+        name: user.name
+      }
+    }).then(function(updatedUser) {
+      console.log("user successfully updated!"); 
+      console.log(updatedUser); 
+      return res.json(updatedUser); 
+    });
+  });  
+
 }

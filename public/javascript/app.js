@@ -22,7 +22,7 @@ $(document).ready(function () {
   }
 
   function showAfterLoginScreen() {
-    $("#welcome-header").hide();
+    $("#welcome-screen").hide();
     $("#after-login-screen").show();
     $("#user-about-me").show();
     $("#user-posts").show();
@@ -31,15 +31,14 @@ $(document).ready(function () {
 
   function initHandlers() {
     // buttons and event listeners
-    $('#btn-login').click(function (event) {
+    $('.btn-login').click(function (event) {
       event.preventDefault();
       webAuth.authorize();
     });
-    $('#btn-logout').click(logout);
+    $('.btn-logout').click(logout);
     $("#submit-new-post").on("click", submitNewPost);
-    $("#submit-new-about").on("click", submitAboutUser); 
+    $("#submit-new-about").on("click", submitAboutUser);
     $(".button-collapse").sideNav();
-    $('.parallax').parallax();
   }
 
   function setSession(authResult) {
@@ -73,12 +72,12 @@ $(document).ready(function () {
 
   function displayButtons() {
     if (isAuthenticated()) {
-      $('#btn-login').css('display', 'none');
-      $('#btn-logout').css('display', 'inline-block');
+      $('.btn-login').css('display', 'none');
+      $('.btn-logout').css('display', 'inline-block');
       $("#login-status").text('You are logged in!');
     } else {
-      $('#btn-login').css('display', 'inline-block');
-      $('#btn-logout').css('display', 'none');
+      $('.btn-login').css('display', 'inline-block');
+      $('.btn-logout').css('display', 'none');
       $("#login-status").text('Please login to continue!');
     }
   }
@@ -96,7 +95,7 @@ $(document).ready(function () {
 
         window.location.hash = '';
         setSession(authResult);
-        $('#btn-login').css('display', 'none');
+        $('.btn-login').css('display', 'none');
         // toggle showing login/logout depending on if the user is authenticated or not
         displayButtons();
 
@@ -123,20 +122,31 @@ $(document).ready(function () {
     getPosts(function (userPosts) {
       for (var i = 0; i < userPosts.length; i++) {
         var currentPost = JSON.parse(JSON.stringify(userPosts[i]));
-      
+
         var newPost = $("<li>");
-        newPost.attr("class", "collection-item"); 
-        var newPostBody = currentPost["Posts.body"]; 
+        newPost.attr("class", "flow-text collection-item");
+        var newPostBody = currentPost["Posts.body"];
         newPost.append(newPostBody);
         $("#user-posts-here").append(newPost);
       }
+      var singlePost = JSON.parse(JSON.stringify(userPosts[0]));
+      var aboutUser = singlePost["about_user"];
+      console.log(aboutUser);
+      $('#about-user').val(aboutUser);
+      $('#about-user').trigger('autoresize');
+      Materialize.updateTextFields();
+
+      var userName = $("<h5>"); 
+      userName.attr("class", "current-user-name"); 
+      userName.append(singlePost["name"]); 
+       $("#user-name").append(userName); 
     });
 
 
     var profileImage = $("<img>");
     profileImage.attr({
       "src": userImage,
-      "class": "responsive-img"
+      "class": "responsive-img materialboxed"
     });
     $("#user-image").append(profileImage);
 
@@ -170,12 +180,19 @@ $(document).ready(function () {
     console.log("Post submitted!");
     var postTitle = $("#post-title").val().trim();
     var postBody = $("#post-body").val().trim();
+    // empty out form after submission 
+    $("#post-body").val(""); 
     // new post to server must follow following guidelines: 
     var newPost = {
       title: postTitle,
       body: postBody,
       UserId: retrievedObject.id
     }
+
+    // attaches current status next to user image 
+    $("#current-status-text").text(""); 
+    var newPostText = postBody; 
+    $("#current-status-text").append(newPostText); 
 
     $.post("/users/posts/", newPost).then(function (result) {
       console.log(result);
@@ -197,8 +214,24 @@ $(document).ready(function () {
   }
 
   function submitAboutUser() {
-    
+    var retrievedObject = JSON.parse(sessionStorage.getItem('currentUser'));
+    var userName = retrievedObject.name;
+    var aboutUser = $("#about-user").val().trim();
+    console.log(aboutUser);
+    var updateUser = {
+      aboutUser: aboutUser,
+      name: userName
+    }
+    $.ajax({
+      url: "/users/aboutuser/",
+      method: "PUT",
+      data: updateUser
+    }).done(function (result) {
+      console.log(result);
+    });
   }
+
+
 
   function renderQuestionsPage() {
 
