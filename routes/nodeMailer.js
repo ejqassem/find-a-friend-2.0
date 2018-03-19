@@ -5,7 +5,7 @@ module.exports = function (newUserEmail) {
   'use strict';
   var send = require('gmail-send')({
     user: 'habbibi.friendapp@gmail.com', // Your GMail account used to send emails 
-    pass: 'habbibifriendapp', // Application-specific password 
+    pass: "test-password", // Application-specific password 
     to: newUserEmail, // Send to yourself 
     // you also may set array of recipients:  
     // [ 'user1@gmail.com', 'user2@gmail.com' ] 
